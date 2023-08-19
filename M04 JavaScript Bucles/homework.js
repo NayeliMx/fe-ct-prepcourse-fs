@@ -156,7 +156,7 @@ function operadoresLogicos(num1, num2, num3) {
    }else if (num3 > num1 && num3 > num2) {
       var aumenta = num3 +1;
       return aumenta;
-   }else if (num1 == 0 || num2 == 0 || num3 == 0) {
+   }else if (num1 == 0 && num2 == 0 && num3 == 0) {
       return "Error"
    }else{
       return false;
@@ -169,7 +169,20 @@ function esPrimo(num) {
    // [Pista 1]: un número primo sólo es divisible por sí mismo y por 1.
    // [Pista 2]: puedes resolverlo utilizando un `bucle for`.
    // [Nota]: los números negativos, 0 y 1 NO son números primos.
-   // Tu código:    
+   // Tu código:  
+   if (num <= 0 || num === 1)return false;
+      for (var i = 2; i < num ; i++) {
+         if (num % i ===0) return false; 
+      }
+      return true;
+   
+   /*for (let index = 2; index < num; index++) {
+      if (num%index == 0 && num%1== 0 && num != 0 && num <= 1) {
+         return true;
+      }else {
+         return false;
+      }  
+   }*/
 }
 
 function esVerdadero(valor) {
@@ -186,9 +199,9 @@ function tieneTresDigitos(num) {
    // Si el número recibido tiene tres dígitos retornar true.
    // Caso contrario, retornar false.
    // Tu código:     
-   if (num >= 100) {
+   if (num >= 100 && num <= 999) {
       return true
-   }if(num <= 99){
+   }else{
       return false
    }
 }
